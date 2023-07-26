@@ -8,27 +8,26 @@ def validateFirstLine(line):
         return False
 
 def countPoints(fm):
-    for line in fm:
-        print(line, end='')
-        #num_line = num_line+1
+
+    player1 = []
+    player2 = []
+
+    lines = fm.read().splitlines()
+
+    for line in lines:
+        points = line.split(" ")
+        player1.append(points[0])
+        player2.append(points[1])
+    print(player1)
+    print(player2)    
 
 
 def openFile(file_name):
     f = open("./marcadores/"+file_name, 'r', encoding="utf-8")
     line = f.readline()
     if validateFirstLine(line):
-        countPoints(f.read())
+        countPoints(f)
     f.close()    
 
-    """
-    for line in f:
-        if num_line == 0:
-            first_valid = validateFirstLine(line)
-        else:
-            if first_valid:                        
-                print(line, end='')
-                countPoints()
-        num_line = num_line+1
-    """    
 
 openFile("juego1")    

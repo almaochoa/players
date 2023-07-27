@@ -12,7 +12,7 @@ def validateFirstLine(line):
         print("El dato de ronda debe ser un numero")
         return False
     
-#function para crear el archivo con el ganador 
+#function para crear el archivo con el ganador en el DIR resultados
 # @params file_name a crear
 # @params player1 puntaje max del player1
 # @params player2 puntaje maz del player2   
@@ -63,7 +63,7 @@ def setPointsByPlayer(fm, file_name):
     if(validateNum):
         createOuFile(file_name, player1, player2)                 
 
- 
+#busca el archivo en la carpeta marcadores
 def openFile(file_name):
     f = open("./marcadores/"+file_name, 'r', encoding="utf-8")
     line = f.readline()
@@ -71,6 +71,7 @@ def openFile(file_name):
         setPointsByPlayer(f, file_name)
     f.close()    
 
+#pregunta al usuario el nombre del archivo donde estan los marcadores
 def askFileName():
     print("¿Cómo se llama el archivo?")
     file_name = input()
